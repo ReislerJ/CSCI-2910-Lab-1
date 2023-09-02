@@ -13,7 +13,7 @@
 using Lab_1;
 
 public class driver
- {
+{
     public static void Main()
     {
         /* Make a list in the driver to hold video games. Use stream reader and writer to populate the list. Stream only take in one line at a time. Need to write a very specific for loop to read a line, then feed information into parameterized constructor in specfic order. 
@@ -44,15 +44,31 @@ public class driver
                     //Declaring an array of strings in which each field of the array will contain one piece of video game data
                     string[] fields = line.Split(","); //fields[0] = "FIFA", fields[1] = "17", fields[2] = "PS4"
                     
-                    //Creating a new video game object using the parameterized constructor in VG class which will be written over in the while loop. Driver will create and then add a new video game to the video game list each iteration on the while loop until there are no more lines available to create VideoGame objects from.
-                    VideoGame game = new VideoGame();
+                    //Creating a new video game object using the parameterized constructor in VG class which will be written over in the while loop. Driver will create and then add a new video game to the video game list each iteration on the while loop until there are no more lines available to create VideoGame objects from. Parsed some fields due to differing variable types.
+                    VideoGame g = new VideoGame(fields[0], fields[1], fields[2], fields[3], fields[4], double.Parse(fields[5]), double.Parse(fields[6]), double.Parse(fields[7]), double.Parse(fields[8]), double.Parse(fields[9]));
 
+                    //How do I correct this error? Should be adding the new game t the game list. 
+                    gameList.Add(g);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                Console.WriteLine("Failed to read from file.");
                 throw;
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+
+                //How do I fix this error?
+                foreach (VideoGame g in gameList)
+                {
+                    //Does this need to use the ToString function?
+                    Console.WriteLine(g);
+                }
             }
         }
         
@@ -72,4 +88,4 @@ public class driver
 
 
     }
- }
+}
