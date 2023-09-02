@@ -14,22 +14,26 @@ using Lab_1;
 
 public class driver
 {
-    public static void Main()
+    private static void Main(string[] args)
     {
         /* Make a list in the driver to hold video games. Use stream reader and writer to populate the list. Stream only take in one line at a time. Need to write a very specific for loop to read a line, then feed information into parameterized constructor in specfic order. 
         */
 
-        //Declare new list of videogame objects.
+        //Declare global list of video game objects.
         List<VideoGame> gameList = new List<VideoGame>();
 
-        //Loop through whole file size with Stream Reader/ Writer and use parameterized constructor to make object instance. Store object into list.
-        /// <summary>
-        /// Get the filename from the user and try to open it; read
-        /// contents and build library; handle any exceptions 
-        /// that occur.
-        /// </summary>
+        //Insert output to test program and know is working 
 
-        static void InputFile()
+    }
+
+
+    //Loop through whole file size with Stream Reader/ Writer and use parameterized constructor to make object instance. Store object into list.
+    /// <summary>
+    /// Get the filename from the user and try to open it; read
+    /// contents and build library; handle any exceptions 
+    /// that occur.
+    /// </summary>
+    private static void InputFile(List<VideoGame> list)
         {
             StreamReader reader = null;
 
@@ -48,7 +52,7 @@ public class driver
                     VideoGame g = new VideoGame(fields[0], fields[1], fields[2], fields[3], fields[4], double.Parse(fields[5]), double.Parse(fields[6]), double.Parse(fields[7]), double.Parse(fields[8]), double.Parse(fields[9]));
 
                     //How do I correct this error? Should be adding the new game t the game list. 
-                    gameList.Add(g);
+                    list.Add(g);
                 }
             }
             catch (Exception e)
@@ -64,7 +68,7 @@ public class driver
                 }
 
                 //How do I fix this error?
-                foreach (VideoGame g in gameList)
+                foreach (VideoGame g in list)
                 {
                     //Does this need to use the ToString function?
                     Console.WriteLine(g);
@@ -73,19 +77,19 @@ public class driver
         }
         
 
-        //Implement Icomaprable
+        //Implement Icomparable
 
         //Implement LinQ with Lamda
+        /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
 
         //Stats
 
-        //PublisherData
+        //PublisherData Method
 
-        //GenreData
+        //GenreData Method
 
 
         /* Will the methods that work with the list itself also be in the driver? It does not seem like they could go elsewhere? Function that allows user input and then alphabetically sorts.*/
 
-
-    }
+    
 }
