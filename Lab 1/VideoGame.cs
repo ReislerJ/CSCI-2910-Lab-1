@@ -15,7 +15,7 @@ namespace Lab_1
         private int year { get; set; }
 
         //Would this be an enum?
-        private Genre genre { get; set; }
+        private string genre { get; set; }
 
         private string publisher { get; set; }
 
@@ -32,23 +32,22 @@ namespace Lab_1
         /* NOTES - Need to make this in same order as param constructor for neatness */
         public VideoGame()
         {
-            this.name = "Imagine Makceup Artist";
-            this.platform = "DS";
+            this.name = "Exmaple Game Title";
+            this.platform = "Example Platform Type";
             this.year = 1999;
-            this.genre = Genre.Example;
+            this.genre = "Example Genre";
             this.publisher = "Ubisoft";
-            this.naSAles = 0.27;
-            this.euSales = 3.75;
-            this.jpSales = 0.03;
-            this.otherSales = 0.69;
-            this.globalSales = 4.3;
-
+            this.naSales = 0.0;
+            this.euSales = 0.0;
+            this.jpSales = 0.0;
+            this.otherSales = 0.0;
+            this.globalSales = 0.0;
         }
 
         /// <summary>
         /// Parameterized Constructor - Used to make a video game object with specific values upon creation. 
         /// </summary>
-        public VideoGame(string name, string platform, int year, Genre genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
+        public VideoGame(string name, string platform, int year, string genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
         {
             //Setting the information that was taken in from program user as an object instances values. 
             this.name=name;
@@ -56,7 +55,7 @@ namespace Lab_1
             this.year = year;
             this.genre=genre;
             this.publisher=publisher;
-            this.naSAles = naSales;
+            this.naSales = naSales;
             this.euSales=euSales;
             this.jpSales=jpSales;
             this.otherSales=otherSales;
@@ -73,7 +72,9 @@ namespace Lab_1
             //A string variable to hold the display format of the object 
             string displayForm;
 
-            displayForm = $"Title: {this.name} \nGame Platform: {this.platform} \nRelease Year: {this.year} \nGenre: {this.genre} \nPublisher:  {this.publisher} \nNA Sales: {this.naSales
+            displayForm = $"Title: {this.name} \nGame Platform: {this.platform} \nRelease Year: {this.year} \nGenre: {this.genre} \nPublisher:  {this.publisher} \nNA Sales: {this.naSales} \nEU Sales: {this.euSales} \nJP Sales: {this.jpSales} \nOther Sales: {this.otherSales} \nGlobal Sales: {this.globalSales}";
+
+            return displayForm;
         }
     }
 }
