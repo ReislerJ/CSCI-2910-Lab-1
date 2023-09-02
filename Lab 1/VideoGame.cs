@@ -15,28 +15,65 @@ namespace Lab_1
         private int year { get; set; }
 
         //Would this be an enum?
-        private string genre { get; set; }
+        private Genre genre { get; set; }
 
         private string publisher { get; set; }
 
-        private double naSAles { get; set; }
+        private double naSales{ get; set; } 
         private double euSales { get; set; }
         private double jpSales { get; set; }
         private double otherSales { get; set; }
         private double globalSales { get; set; }
 
         /****Constructors****/
-        //Default Constructor - called to make a basic, default set video game.
-        public VideoGames()
+        /// <summary>
+        /// Default Constructor - called to make a basic, default set video game. 
+        /// </summary>
+        /* NOTES - Need to make this in same order as param constructor for neatness */
+        public VideoGame()
         {
-            this.genre = 
+            this.name = "Imagine Makceup Artist";
+            this.platform = "DS";
+            this.year = 1999;
+            this.genre = Genre.Example;
+            this.publisher = "Ubisoft";
+            this.naSAles = 0.27;
+            this.euSales = 3.75;
+            this.jpSales = 0.03;
+            this.otherSales = 0.69;
+            this.globalSales = 4.3;
+
         }
 
-        //Parameterized Constructor - Used to make a video game object with specific values upon creation.
+        /// <summary>
+        /// Parameterized Constructor - Used to make a video game object with specific values upon creation. 
+        /// </summary>
+        public VideoGame(string name, string platform, int year, Genre genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
+        {
+            //Setting the information that was taken in from program user as an object instances values. 
+            this.name=name;
+            this.platform=platform;
+            this.year = year;
+            this.genre=genre;
+            this.publisher=publisher;
+            this.naSAles = naSales;
+            this.euSales=euSales;
+            this.jpSales=jpSales;
+            this.otherSales=otherSales;
+            this.globalSales=globalSales;
+        }
 
-        
-        //Methods
+        /****Methods****/
 
+        /// <summary>
+        /// To String Method - outputs proper worded format of object instances. 
+        /// </summary>
+        public override string ToString()
+        {
+            //A string variable to hold the display format of the object 
+            string displayForm;
 
+            displayForm = $"Title: {this.name} \nGame Platform: {this.platform} \nRelease Year: {this.year} \nGenre: {this.genre} \nPublisher:  {this.publisher} \nNA Sales: {this.naSales
+        }
     }
 }
