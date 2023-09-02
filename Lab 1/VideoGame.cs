@@ -12,7 +12,7 @@ namespace Lab_1
         /* Do these names follow correct naming standards?*/
         private string name { get; set; }
         private string platform { get; set; }
-        private int year { get; set; }
+        private string year { get; set; }
 
         //Would this be an enum?
         private string genre { get; set; }
@@ -26,6 +26,7 @@ namespace Lab_1
         private double globalSales { get; set; }
 
         /****Constructors****/
+
         /// <summary>
         /// Default Constructor - called to make a basic, default set video game. 
         /// </summary>
@@ -34,7 +35,7 @@ namespace Lab_1
         {
             this.name = "Exmaple Game Title";
             this.platform = "Example Platform Type";
-            this.year = 1999;
+            this.year = "9999";
             this.genre = "Example Genre";
             this.publisher = "Ubisoft";
             this.naSales = 0.0;
@@ -47,7 +48,7 @@ namespace Lab_1
         /// <summary>
         /// Parameterized Constructor - Used to make a video game object with specific values upon creation. 
         /// </summary>
-        public VideoGame(string name, string platform, int year, string genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
+        public VideoGame(string name, string platform, string year, string genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
         {
             //Setting the information that was taken in from program user as an object instances values. 
             this.name=name;

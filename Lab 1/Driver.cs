@@ -10,7 +10,9 @@
 //
 /////////////////////////////////////////////////////////////////////////////////////
 
- public class driver
+using Lab_1;
+
+public class driver
  {
     public static void Main()
     {
@@ -18,8 +20,42 @@
         */
 
         //Declare new list of videogame objects.
+        List<VideoGame> gameList = new List<VideoGame>();
 
-        //Loop through whole file size with Stream Reader/ Writer and use parameterized constructor to make object instance. Store object into list. 
+        //Loop through whole file size with Stream Reader/ Writer and use parameterized constructor to make object instance. Store object into list.
+        /// <summary>
+        /// Get the filename from the user and try to open it; read
+        /// contents and build library; handle any exceptions 
+        /// that occur.
+        /// </summary>
+
+        static void InputFile()
+        {
+            StreamReader reader = null;
+
+            try
+            {
+                reader = new StreamReader("../../../Game File/videogames.csv");
+                while (reader.Peek() != -1) //Peek returns -1 if there is no more text left to process
+                {
+                    //declaring new string variable "line" which == a line that is read in by stream reader object using read line function
+                    string line = reader.ReadLine(); //FIFA 17,PS4,2016,Sports,Electronic Arts,0.28,3.75,0.06,0.69,4.77
+
+                    //Declaring an array of strings in which each field of the array will contain one piece of video game data
+                    string[] fields = line.Split(","); //fields[0] = "FIFA", fields[1] = "17", fields[2] = "PS4"
+                    
+                    //Creating a new video game object using the parameterized constructor in VG class which will be written over in the while loop. Driver will create and then add a new video game to the video game list each iteration on the while loop until there are no more lines available to create VideoGame objects from.
+                    VideoGame game = new VideoGame();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        
 
         //Implement Icomaprable
 
