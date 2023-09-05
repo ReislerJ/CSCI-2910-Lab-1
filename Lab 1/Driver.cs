@@ -11,19 +11,21 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 using Lab_1;
+using System.Security.Cryptography.X509Certificates;
 
 public class driver
 {
+    //Declare global list of video game objects.
+    List<VideoGame> gameList = new List<VideoGame>();
+
     private static void Main(string[] args)
     {
         /* Make a list in the driver to hold video games. Use stream reader and writer to populate the list. Stream only take in one line at a time. Need to write a very specific for loop to read a line, then feed information into parameterized constructor in specfic order. 
         */
 
-        //Declare global list of video game objects.
-        List<VideoGame> gameList = new List<VideoGame>();
 
         //Insert output to test program and know is working 
-
+        Console.WriteLine("Populated VideoGame List: ");
     }
 
 
@@ -75,21 +77,36 @@ public class driver
                 }
             }
         }
-        
 
-        //Implement Icomparable
+    /// <summary>
+    /// List To String Method - Builds up a proper output of the list attribute itself
+    /// </summary>
+    public override string ToString()
+    {
+        //A string variable to hold the list form
+        string listOutput = "";
 
-        //Implement LinQ with Lamda
-        /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
+        //Build up the list output
+        for (int i = 0; i < gameList.Count; i++)
+        {
+            listOutput += $"The following list results from populating from file: \n{gameList[i].ToString()} \n";
+        }
 
-        //Stats
-
-        //PublisherData Method
-
-        //GenreData Method
+        return listOutput;
+    }
 
 
-        /* Will the methods that work with the list itself also be in the driver? It does not seem like they could go elsewhere? Function that allows user input and then alphabetically sorts.*/
+    //Implement LinQ with Lamda
+    /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
 
-    
+    //Stats
+
+    //PublisherData Method
+
+    //GenreData Method
+
+
+    /* Will the methods that work with the list itself also be in the driver? It does not seem like they could go elsewhere? Function that allows user input and then alphabetically sorts.*/
+
+
 }

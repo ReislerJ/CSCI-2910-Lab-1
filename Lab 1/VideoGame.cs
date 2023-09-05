@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lab_1
 {
-    public class VideoGame
+    public class VideoGame : IComparable
     {
         //Attributes
         /* Do these names follow correct naming standards?*/
-        private string name { get; set; }
+        private string title { get; set; }
         private string platform { get; set; }
         private string year { get; set; }
 
@@ -33,7 +33,7 @@ namespace Lab_1
         /* NOTES - Need to make this in same order as param constructor for neatness */
         public VideoGame()
         {
-            this.name = "Exmaple Game Title";
+            this.title = "Exmaple Game Title";
             this.platform = "Example Platform Type";
             this.year = "9999";
             this.genre = "Example Genre";
@@ -51,7 +51,7 @@ namespace Lab_1
         public VideoGame(string name, string platform, string year, string genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
         {
             //Setting the information that was taken in from program user as an object instances values. 
-            this.name=name;
+            this.title=name;
             this.platform=platform;
             this.year = year;
             this.genre=genre;
@@ -73,9 +73,24 @@ namespace Lab_1
             //A string variable to hold the display format of the object 
             string displayForm;
 
-            displayForm = $"Title: {this.name} \nGame Platform: {this.platform} \nRelease Year: {this.year} \nGenre: {this.genre} \nPublisher:  {this.publisher} \nNA Sales: {this.naSales} \nEU Sales: {this.euSales} \nJP Sales: {this.jpSales} \nOther Sales: {this.otherSales} \nGlobal Sales: {this.globalSales}";
+            displayForm = $"Title: {this.title} \nGame Platform: {this.platform} \nRelease Year: {this.year} \nGenre: {this.genre} \nPublisher:  {this.publisher} \nNA Sales: {this.naSales} \nEU Sales: {this.euSales} \nJP Sales: {this.jpSales} \nOther Sales: {this.otherSales} \nGlobal Sales: {this.globalSales}";
 
             return displayForm;
+        }
+
+        /// <summary>
+        /// CompareTo Method - Implements the IComparale interface which allows users to compare objects  
+        /// </summary>
+        public int CompareTo(Object obj)
+        {
+            //Storing parameter object in temp variable of VideoGame class type
+            VideoGame passedVideoGame = obj as VideoGame;
+
+            /*Reference: https://www.geeksforgeeks.org/c-sharp-program-to-implement-icomparable-interface/#
+             * returns 0, if the current instance’s property is equal to the temporary variable’s property
+             * returns 1, if the current instance’s property is greater than the temporary variable’s property
+             * returns -1, if the current instance’s property is less than the temporary variable’s property */
+            return this.title.CompareTo(passedVideoGame.title);
         }
     }
 }
