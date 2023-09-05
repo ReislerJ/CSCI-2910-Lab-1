@@ -24,8 +24,11 @@ public class driver
         //Declare global list of video game objects.
         List<VideoGame> gameList = new List<VideoGame>();
 
+        //Populate the list using the file
+        gameList = InputFile(gameList);
+
         //Insert output to test program and know is working 
-        Console.WriteLine("The fol");
+        Console.WriteLine("The following is the result of populating the list using the file: \n");
         foreach (VideoGame game in gameList)
         {
             Console.WriteLine(game);
@@ -52,6 +55,10 @@ public class driver
             try
             {
                 reader = new StreamReader("../../../Game File/videogames.csv");
+                
+                //Reading the first line, but not saving it to anything
+                reader.ReadLine();
+
                 while (reader.Peek() != -1) //Peek returns -1 if there is no more text left to process
                 {
                     //declaring new string variable "line" which == a line that is read in by stream reader object using read line function

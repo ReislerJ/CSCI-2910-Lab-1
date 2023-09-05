@@ -73,7 +73,7 @@ namespace Lab_1
             //A string variable to hold the display format of the object 
             string displayForm;
 
-            displayForm = $"Title: {this.title} \nGame Platform: {this.platform} \nRelease Year: {this.year} \nGenre: {this.genre} \nPublisher:  {this.publisher} \nNA Sales: {this.naSales} \nEU Sales: {this.euSales} \nJP Sales: {this.jpSales} \nOther Sales: {this.otherSales} \nGlobal Sales: {this.globalSales}";
+            displayForm = $"Title: {this.title}\tGame Platform: {this.platform}\tRelease Year: {this.year}\tGenre: {this.genre}\tPublisher:  {this.publisher}\tNA Sales: {this.naSales}\tEU Sales: {this.euSales}\tJP Sales: {this.jpSales}\tOther Sales: {this.otherSales}\tGlobal Sales: {this.globalSales} \n";
 
             return displayForm;
         }
