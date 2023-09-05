@@ -15,17 +15,27 @@ using System.Security.Cryptography.X509Certificates;
 
 public class driver
 {
-    //Declare global list of video game objects.
-    List<VideoGame> gameList = new List<VideoGame>();
+    /* Make a list in the driver to hold video games. Use stream reader and writer to populate the list. Stream only take in one line at a time. Need to write a very specific for loop to read a line, then feed information into parameterized constructor in specfic order. 
+      */
 
     private static void Main(string[] args)
     {
-        /* Make a list in the driver to hold video games. Use stream reader and writer to populate the list. Stream only take in one line at a time. Need to write a very specific for loop to read a line, then feed information into parameterized constructor in specfic order. 
-        */
 
+        //Declare global list of video game objects.
+        List<VideoGame> gameList = new List<VideoGame>();
 
         //Insert output to test program and know is working 
-        Console.WriteLine("Populated VideoGame List: ");
+        Console.WriteLine("The fol");
+        foreach (VideoGame game in gameList)
+        {
+            Console.WriteLine(game);
+        }
+
+        //Implement LinQ with Lamda
+        /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
+
+
+
     }
 
 
@@ -35,8 +45,8 @@ public class driver
     /// contents and build library; handle any exceptions 
     /// that occur.
     /// </summary>
-    private static void InputFile(List<VideoGame> list)
-        {
+    private static List<VideoGame> InputFile(List<VideoGame> list)
+    {
             StreamReader reader = null;
 
             try
@@ -55,6 +65,7 @@ public class driver
 
                     //How do I correct this error? Should be adding the new game t the game list. 
                     list.Add(g);
+
                 }
             }
             catch (Exception e)
@@ -62,43 +73,13 @@ public class driver
                 Console.WriteLine("Failed to read from file.");
                 throw;
             }
-            finally
-            {
-                if (reader != null)
-                {
-                    reader.Close();
-                }
 
-                //How do I fix this error?
-                foreach (VideoGame g in list)
-                {
-                    //Does this need to use the ToString function?
-                    Console.WriteLine(g);
-                }
-            }
-        }
-
-    /// <summary>
-    /// List To String Method - Builds up a proper output of the list attribute itself
-    /// </summary>
-    public override string ToString()
-    {
-        //A string variable to hold the list form
-        string listOutput = "";
-
-        //Build up the list output
-        for (int i = 0; i < gameList.Count; i++)
-        {
-            listOutput += $"The following list results from populating from file: \n{gameList[i].ToString()} \n";
-        }
-
-        return listOutput;
+        //Does not have to be in a finally
+        reader.Close();
+        return list;
     }
 
-
-    //Implement LinQ with Lamda
-    /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
-
+    
     //Stats
 
     //PublisherData Method
