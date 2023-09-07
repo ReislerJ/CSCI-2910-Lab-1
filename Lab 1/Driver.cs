@@ -34,11 +34,13 @@ public class driver
             Console.WriteLine(game);
         }
 
+        //Sort the list by title in ascending order
+        /*Reference https://www.techiedelight.com/sort-list-of-objects-csharp/ */
+        gameList.Sort(delegate (VideoGame x, VideoGame y) { return x.title.CompareTo(y.title); });
+
+
         //Implement LinQ with Lamda
         /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
-
-
-
     }
 
 

@@ -10,7 +10,7 @@ namespace Lab_1
     {
         //Attributes
         /* Do these names follow correct naming standards?*/
-        private string title { get; set; }
+        public string title { get; }
         private string platform { get; set; }
         private string year { get; set; }
 
@@ -48,10 +48,10 @@ namespace Lab_1
         /// <summary>
         /// Parameterized Constructor - Used to make a video game object with specific values upon creation. 
         /// </summary>
-        public VideoGame(string name, string platform, string year, string genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
+        public VideoGame(string title, string platform, string year, string genre, string publisher, double naSales, double euSales, double jpSales, double otherSales, double globalSales)
         {
             //Setting the information that was taken in from program user as an object instances values. 
-            this.title=name;
+            this.title=title;
             this.platform=platform;
             this.year = year;
             this.genre=genre;
