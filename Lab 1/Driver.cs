@@ -36,7 +36,7 @@ public class driver
 
         //Sort the list by title in ascending order
         /*Reference https://www.techiedelight.com/sort-list-of-objects-csharp/ */
-        gameList.Sort(delegate (VideoGame x, VideoGame y) { return x.title.CompareTo(y.title); });
+        gameList.Sort((x,y) => x.title.CompareTo(y.title));
 
 
         //Implement LinQ with Lamda
