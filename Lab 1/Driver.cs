@@ -28,19 +28,28 @@ public class driver
         gameList = InputFile(gameList);
 
         //Insert output to test program and know is working 
-        Console.WriteLine("The following is the result of populating the list using the file: \n");
+        /*Console.WriteLine("The following is the result of populating the list using the file: \n");
+        foreach (VideoGame game in gameList)
+        {
+            Console.WriteLine(game);
+        }*/
+
+        //Sort the list by title in ascending order
+        /*Reference https://www.techiedelight.com/sort-list-of-objects-csharp/ */
+        //Implement LinQ with Lamda
+        /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
+        gameList.Sort((x,y) => x.title.CompareTo(y.title));
+
+        //Display newly sorted list
+        Console.WriteLine("The following is the result of sorting the video game list in asceding order based on title: \n");
         foreach (VideoGame game in gameList)
         {
             Console.WriteLine(game);
         }
 
-        //Sort the list by title in ascending order
-        /*Reference https://www.techiedelight.com/sort-list-of-objects-csharp/ */
-        gameList.Sort((x,y) => x.title.CompareTo(y.title));
 
-
-        //Implement LinQ with Lamda
-        /*Use LinQ with embedded lamda function. Lamda function can test if an object meets a certain req. Could then add this object to another smaller list. Then sort this 2nd list alphabetically.*/
+        /*Choose a publisher (e.g., Nintendo) from the dataset and create a list of games from that developer from the list created in the first step. Then sort that list alphabetically and display each item inside.*/
+        /*https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions */
     }
 
 
@@ -99,4 +108,4 @@ public class driver
     /* Will the methods that work with the list itself also be in the driver? It does not seem like they could go elsewhere? Function that allows user input and then alphabetically sorts.*/
 
 
-}
+    }
