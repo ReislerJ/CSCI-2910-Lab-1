@@ -63,7 +63,12 @@ public class driver
         }
 
         //For whichever publisher you chose, calculate and display the percentage of games that belong to that genre as well as how to many games are from that developer out of the total (e.g., “Out of 500 games, 400 are developed by Nintendo, which is 80%”)
+        double totalOverallCount = gameList.Count;
+        double subListCount = subList.Count;
+        double percentage = (subListCount / totalOverallCount) * 100;
 
+
+        Console.WriteLine($"Out of {gameList.Count} games, {subList.Count} are developed by {pubChoice}, which is {percentage}%");
 
     }
 
