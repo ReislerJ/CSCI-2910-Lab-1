@@ -11,19 +11,19 @@ namespace Lab_1
         //Attributes
         /* Do these names follow correct naming standards?*/
         public string title { get; }
-        private string platform { get; set; }
-        private string year { get; set; }
+        public string platform { get; }
+        public string year { get; }
 
         //Would this be an enum?
-        private string genre { get; set; }
+        public string genre { get; }
 
-        private string publisher { get; set; }
+        public string publisher { get; }
 
-        private double naSales{ get; set; } 
-        private double euSales { get; set; }
-        private double jpSales { get; set; }
-        private double otherSales { get; set; }
-        private double globalSales { get; set; }
+        public double naSales{ get; } 
+        public double euSales { get; }
+        public double jpSales { get;  }
+        public double otherSales { get;  }
+        public double globalSales { get; }
 
         /****Constructors****/
 

@@ -28,11 +28,11 @@ public class driver
         gameList = InputFile(gameList);
 
         //Insert output to test program and know is working 
-        /*Console.WriteLine("The following is the result of populating the list using the file: \n");
+        Console.WriteLine("The following is the result of populating the list using the file: \n");
         foreach (VideoGame game in gameList)
         {
             Console.WriteLine(game);
-        }*/
+        }
 
         //Sort the list by title in ascending order
         /*Reference https://www.techiedelight.com/sort-list-of-objects-csharp/ */
@@ -50,6 +50,21 @@ public class driver
 
         /*Choose a publisher (e.g., Nintendo) from the dataset and create a list of games from that developer from the list created in the first step. Then sort that list alphabetically and display each item inside.*/
         /*https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions */
+
+        Console.WriteLine("What publisher's video games would you like to display? \n");
+        string pubChoice = Console.ReadLine();
+
+        //Declaring a new list to store objects that meet a certain requirement into
+        List<VideoGame> subList = new List<VideoGame>(gameList.FindAll(g => g.publisher == pubChoice));
+
+        foreach (VideoGame game in subList)
+        {
+            Console.WriteLine(game);
+        }
+
+        //For whichever publisher you chose, calculate and display the percentage of games that belong to that genre as well as how to many games are from that developer out of the total (e.g., “Out of 500 games, 400 are developed by Nintendo, which is 80%”)
+
+
     }
 
 
