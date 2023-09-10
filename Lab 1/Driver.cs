@@ -41,7 +41,7 @@ public class driver
         gameList.Sort((x,y) => x.title.CompareTo(y.title));
 
         //Display newly sorted list
-        Console.WriteLine("The following is the result of sorting the video game list in asceding order based on title: \n");
+        Console.WriteLine("The following is the result of sorting the video game list in ascending order based on title: \n");
         foreach (VideoGame game in gameList)
         {
             Console.WriteLine(game);
@@ -152,6 +152,9 @@ public class driver
         //Declaring a new list to store objects that meet a certain requirement into
         List<VideoGame> subListPub = new List<VideoGame>(list.FindAll(g => g.publisher == pubChoice));
 
+        //Sort the new list
+        subListPub.Sort((x, y) => x.title.CompareTo(y.title));
+
         foreach (VideoGame game in subListPub)
         {
             Console.WriteLine(game);
@@ -180,7 +183,10 @@ public class driver
         //Declaring a new list to store objects that meet a certain requirement into
         List<VideoGame> genreList = new List<VideoGame>(listPublisher.FindAll(g => g.genre == genreChoice));
 
-        //Dispalying this new list
+        //Sorting the new list 
+        genreList.Sort((x, y) => x.title.CompareTo(y.title));
+
+        //Displaying this new list
         foreach (VideoGame game in genreList)
         {
             Console.WriteLine(game);
