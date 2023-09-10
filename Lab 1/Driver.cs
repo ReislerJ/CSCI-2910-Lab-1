@@ -165,6 +165,8 @@ public class driver
         double subListCount = subListPub.Count;
         double percentage = Math.Round(((subListCount / totalOverallCount) * 100), 2);
 
+        /*Reference for Math.Round: https://stackoverflow.com/questions/2357855/round-double-in-two-decimal-places-in-c */
+
 
         Console.WriteLine($"Out of {list.Count} games, {subListPub.Count} are developed by {pubChoice}, which is {percentage}%");
 
