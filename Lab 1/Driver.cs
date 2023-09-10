@@ -50,32 +50,55 @@ public class driver
 
         /*Choose a publisher (e.g., Nintendo) from the dataset and create a list of games from that developer from the list created in the first step. Then sort that list alphabetically and display each item inside.*/
         /*https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions */
+   
+        List<VideoGame> listPublisher = PublisherData(gameList);
 
-        Console.WriteLine("What publisher's video games would you like to display? \n");
+        /*Console.WriteLine("What publisher's video games would you like to display? \n");
         string pubChoice = Console.ReadLine();
 
-        //Declaring a new list to store objects that meet a certain requirement into
-        List<VideoGame> subList = new List<VideoGame>(gameList.FindAll(g => g.publisher == pubChoice));
+        Declaring a new list to store objects that meet a certain requirement into
+        List<VideoGame> subListPub = new List<VideoGame>(gameList.FindAll(g => g.publisher == pubChoice));
 
-        foreach (VideoGame game in subList)
+        foreach (VideoGame game in subListPub)
         {
             Console.WriteLine(game);
         }
 
         //For whichever publisher you chose, calculate and display the percentage of games that belong to that genre as well as how to many games are from that developer out of the total (e.g., “Out of 500 games, 400 are developed by Nintendo, which is 80%”)
         double totalOverallCount = gameList.Count;
-        double subListCount = subList.Count;
-        double percentage = (subListCount / totalOverallCount) * 100;
+        double subListCount = subListPub.Count;
+        double percentage = Math.Round(((subListCount / totalOverallCount) * 100), 2);
 
 
-        Console.WriteLine($"Out of {gameList.Count} games, {subList.Count} are developed by {pubChoice}, which is {percentage}%");
+        Console.WriteLine($"Out of {gameList.Count} games, {subListPub.Count} are developed by {pubChoice}, which is {percentage}%");*/
 
+        /*Choose a genre (e.g., Role-Playing) and create a list of games of that genre from the list created in the first step. Then sort that list alphabetically and display each item inside.*/
+
+        GenreData(listPublisher);
+
+        /*Console.WriteLine($"What genre of {pubChoice}'s games would you like to populate a list for? \n");
+        string genreChoice = Console.ReadLine();
+
+        //Declaring a new list to store objects that meet a certain requirement into
+        List<VideoGame> genreList = new List<VideoGame>(gameList.FindAll(g => g.genre == genreChoice));
+
+        //Dispalying this new list
+        foreach ( VideoGame game in genreList)
+        {
+            Console.WriteLine(game);
+        }
+
+        /*For whichever genre you chose, calculate and display the percentage of games that belong to that genre as well as how many games belong to that genre out of the total (e.g., “Out of 500 games, 100 are Role-Playing games, which is 20%”)
+        subListCount = genreList.Count;
+        percentage = Math.Round((subListCount / totalOverallCount) * 100, 2);
+
+        Console.WriteLine($"Out of {gameList.Count} games, {subListPub.Count} are developed by {pubChoice}, which is {percentage}%");*/
     }
 
 
     //Loop through whole file size with Stream Reader/ Writer and use parameterized constructor to make object instance. Store object into list.
     /// <summary>
-    /// Get the filename from the user and try to open it; read
+    /// Populating VideoGame List Method - Get the filename from the user and try to open it; read
     /// contents and build library; handle any exceptions 
     /// that occur.
     /// </summary>
@@ -117,15 +140,61 @@ public class driver
         return list;
     }
 
-    
-    //Stats
 
-    //PublisherData Method
+    /// <summary>
+    /// PublisherData Method - Take in publisher (e.g., Nintendo) and create a list of games from that developer. Then sort that list alphabetically and display each item inside.Calculate and display the percentage of games that belong to that genre as well as how to many games are from that developer out of the total (e.g., “Out of 500 games, 400 are developed by Nintendo, which is 80%”). Make sure your percentage only has 2 decimal places when output
+    /// </summary> 
+    private static List<VideoGame> PublisherData(List<VideoGame> list)
+    {
+        Console.WriteLine("What publisher's video games would you like to display? \n");
+        string pubChoice = Console.ReadLine();
 
-    //GenreData Method
+        //Declaring a new list to store objects that meet a certain requirement into
+        List<VideoGame> subListPub = new List<VideoGame>(list.FindAll(g => g.publisher == pubChoice));
 
+        foreach (VideoGame game in subListPub)
+        {
+            Console.WriteLine(game);
+        }
+
+        //For whichever publisher you chose, calculate and display the percentage of games that belong to that genre as well as how to many games are from that developer out of the total (e.g., “Out of 500 games, 400 are developed by Nintendo, which is 80%”)
+        double totalOverallCount = list.Count;
+        double subListCount = subListPub.Count;
+        double percentage = Math.Round(((subListCount / totalOverallCount) * 100), 2);
+
+
+        Console.WriteLine($"Out of {list.Count} games, {subListPub.Count} are developed by {pubChoice}, which is {percentage}%");
+
+        return subListPub;
+    }
+
+
+    /// <summary>
+    /// GenreData Method - For whichever genre you chose, calculate and display the percentage of games that belong to that genre as well as how many games belong to that genre out of the total (e.g., “Out of 500 games, 100 are Role-Playing games, which is 20%”)*/
+    /// </summary> 
+    private static void GenreData(List<VideoGame> listPublisher)
+    {
+        Console.WriteLine($"What genre of your choice publisher's games would you like to populate a list for? \n");
+        string genreChoice = Console.ReadLine();
+
+        //Declaring a new list to store objects that meet a certain requirement into
+        List<VideoGame> genreList = new List<VideoGame>(listPublisher.FindAll(g => g.genre == genreChoice));
+
+        //Dispalying this new list
+        foreach (VideoGame game in genreList)
+        {
+            Console.WriteLine(game);
+        }
+
+        /*For whichever genre you chose, calculate and display the percentage of games that belong to that genre as well as how many games belong to that genre out of the total (e.g., “Out of 500 games, 100 are Role-Playing games, which is 20%”)*/
+        double totalPublisherCount = listPublisher.Count;
+        double subListCount = genreList.Count;
+        double percentage = Math.Round((subListCount / totalPublisherCount) * 100, 2);
+
+        Console.WriteLine($"Out of {totalPublisherCount} games, {subListCount} are in the genre of your choice, which is {percentage}%");
+    }
 
     /* Will the methods that work with the list itself also be in the driver? It does not seem like they could go elsewhere? Function that allows user input and then alphabetically sorts.*/
 
 
-    }
+}
